@@ -1,8 +1,10 @@
+//apps/web/src/utils/trpc.ts
 import type { AppRouter } from "../../../server/src/routers";
 import { QueryCache, QueryClient } from "@tanstack/react-query";
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
 import { createTRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import { toast } from "sonner";
+import type { inferRouterOutputs } from "@trpc/server";
 
 export const queryClient = new QueryClient({
   queryCache: new QueryCache({
@@ -37,3 +39,5 @@ export const trpc = createTRPCOptionsProxy<AppRouter>({
   client: trpcClient,
   queryClient,
 });
+
+export type RouterOutput = inferRouterOutputs<AppRouter>;

@@ -13,6 +13,8 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import "../index.css";
+import { CreateWorkspaceModal } from "@/components/modals/create-workspace-modal";
+import { CreateProjectModal } from "@/components/modals/create-project-modal";
 
 export interface RouterAppContext {
   trpc: typeof trpc;
@@ -56,6 +58,8 @@ function RootComponent() {
         </div>
         <Toaster richColors />
       </ThemeProvider>
+      <CreateWorkspaceModal />
+      <CreateProjectModal />
       <TanStackRouterDevtools position="bottom-left" />
       <ReactQueryDevtools position="bottom" buttonPosition="bottom-right" />
     </>
